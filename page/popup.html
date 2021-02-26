@@ -1,0 +1,96 @@
+<html lang="ja">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/popup.css">
+
+    <title>ポップアップ</title>
+  </head>
+  <body>
+    <div class="form-group content-container">
+        <label class="d-block mb-0"></label>
+        <div class="small text-muted mb-3">有効にしたい機能にチェックを入れて保存を押してください</div>
+        <div class="small text-muted mb-3">
+          <a href="#" id="check-all">すべてチェック</a>
+        </div>
+        <div class="custom-control custom-checkbox mt-1">
+          <input type="checkbox" class="custom-control-input" id="customCheckKeepa">
+          <label class="custom-control-label" for="customCheckKeepa">Keepa</label>
+        </div>
+        <div class="custom-control custom-checkbox mt-1">
+          <input type="checkbox" class="custom-control-input" id="customCheckAmazon">
+          <label class="custom-control-label" for="customCheckAmazon">amazon</label>
+        </div>
+        <div class="custom-control custom-checkbox mt-1">
+          <input type="checkbox" class="custom-control-input" id="customCheckRakuten">
+          <label class="custom-control-label" for="customCheckRakuten">楽天市場</label>
+        </div>
+        <div class="custom-control custom-checkbox mt-1">
+          <input type="checkbox" class="custom-control-input" id="customCheckYshop">
+          <label class="custom-control-label" for="customCheckYshop">Yahoo!ショッピング</label>
+        </div>
+        <div class="custom-control custom-checkbox mt-1">
+          <input type="checkbox" class="custom-control-input" id="customCheckYauc">
+          <label class="custom-control-label" for="customCheckYauc">ヤフオク</label>
+        </div>
+        <div class="custom-control custom-checkbox mt-1">
+          <input type="checkbox" class="custom-control-input" id="customCheckMercari">
+          <label class="custom-control-label" for="customCheckMercari">メルカリ</label>
+        </div>
+        <div class="custom-control custom-checkbox mt-1">
+          <input type="checkbox" class="custom-control-input" id="customCheckRakuma">
+          <label class="custom-control-label" for="customCheckRakuma">ラクマ</label>
+        </div>
+        <div class="custom-control custom-checkbox mt-1">
+          <input type="checkbox" class="custom-control-input" id="customCheckKakaku">
+          <label class="custom-control-label" for="customCheckKakaku">価格.com</label>
+        </div>
+        <div class="custom-control custom-checkbox mt-1">
+          <input type="checkbox" class="custom-control-input" id="customCheckBic">
+          <label class="custom-control-label" for="customCheckBic">ビックカメラ.com</label>
+        </div>
+        <div class="custom-control custom-checkbox mt-1">
+          <input type="checkbox" class="custom-control-input" id="customCheckYdbs">
+          <label class="custom-control-label" for="customCheckYdbs">ヨドバシドットコム</label>
+        </div>
+        <div class="custom-control custom-checkbox mt-1">
+          <input type="checkbox" class="custom-control-input" id="customCheckWowma">
+          <label class="custom-control-label" for="customCheckWowma">au PAY マーケット</label>
+        </div>
+        <div class="custom-control custom-checkbox mt-1">
+          <input type="checkbox" class="custom-control-input" id="customCheckHikari">
+          <label class="custom-control-label" for="customCheckHikari">ひかりTVショッピング</label>
+        </div>
+        <div class="custom-control custom-checkbox mt-1">
+          <input type="checkbox" class="custom-control-input" id="customCheckGgle">
+          <label class="custom-control-label" for="customCheckGgle">Google検索</label>
+        </div>
+        <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#savedModal" id="shoplink-save">
+          保存
+        </button>
+      </div>
+      
+      <div class="modal fade" id="savedModal" tabindex="-1" role="dialog" aria-labelledby="savedModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              設定を保存しました
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <a class="text-muted" href="https://blog.amabot.net/archives/146" target="_blank">物販ツール製作所</a>
+      </div>
+
+      <script src="../script/micromodal.min.js"></script>
+      <script src="../script/jquery.min.js"></script>
+      <script src="../script/popper.min.js"></script>
+      <script src="../script/bootstrap.min.js"></script>
+      <script src="../script/popup.js"></script>
+  </body>
+</html>

@@ -1,8 +1,3 @@
-// 圧縮化手順
-// ①Minify
-// ②https://obfuscator.io/で難読化
-
-
 // 初期値はすべて
 let settings = getDefaultSettings();
 const serachEngineList = [];
@@ -18,7 +13,7 @@ chrome.runtime.sendMessage({ type: "settings" }, function (res) {
 		serachEngineList.push({ name: 'Keepaで検索', url: 'https://keepa.com/#!search/5-<x>', favicon: 'keepa.png' });
 	}
 	if (settings.dispAmazon) {
-		serachEngineList.push({ name: 'amazonで検索', url: 'https://www.amazon.co.jp/s?k=<x>&__mk_ja_JP=カタカナ&ref=nb_sb_noss', favicon: 'amazon.ico' })
+		serachEngineList.push({ name: 'amazonで検索', url: addAffiliateTagAmazon('https://www.amazon.co.jp/s?k=<x>'), favicon: 'amazon.ico' })
 	}
 	if (settings.dispRakuten) {
 		serachEngineList.push({ name: '楽天市場で検索', url: 'https://search.rakuten.co.jp/search/mall/<x>/', favicon: 'rakuten.png' })
@@ -36,7 +31,7 @@ chrome.runtime.sendMessage({ type: "settings" }, function (res) {
 		serachEngineList.push({ name: 'ラクマで検索', url: 'https://fril.jp/search/<x>', favicon: 'rakuma.png' })
 	}
 	if (settings.dispKakaku) {
-		serachEngineList.push({ name: '価格.comで検索', url: 'https://kakaku.com/search_results/<x>/', favicon: 'kakaku.png' })
+		serachEngineList.push({ name: '価格.comで検索', url: 'https://kakaku.com/search_results/{x}/', favicon: 'kakaku.png' })
 	}
 	if (settings.dispBic) {
 		serachEngineList.push({ name: 'ビックカメラ.comで検索', url: 'https://www.biccamera.com/bc/category/?q={x}', favicon: 'biccamera.png' })
@@ -167,6 +162,9 @@ var ts = {
 							$('#word').focus();
 						}
 						else {
+							if (this.url.indexOf('search.rakuten.co.jp/search/mall') > 0) { 
+								window.open(addAffiliateTagRakuten(this.url.replace('<x>', encodeURI(_ts.keyword))), '_blank');
+							}
 							if (this.url.indexOf('<x>') > 0) {
 								window.open(this.url.replace('<x>', encodeURI(_ts.keyword)), '_blank');
 							}
@@ -269,4 +267,14 @@ function convertStrToArrays(str) {
 function convertToShiftJis(str) {
 	const sjis = Encoding.urlEncode(Encoding.convert(convertStrToArrays(str), 'SJIS'));
 	return sjis
+}
+// アフィリエイトリンク作成
+function addAffiliateTagAmazon(url) {
+    const associateId = "s1131022-22";
+    return `${url}&link_code=ur2&tag=${associateId}&camp=247&creative=1211`;
+}
+
+function addAffiliateTagRakuten(uri){
+    const encodedUri = encodeURI(uri);
+    return "https://hb.afl.rakuten.co.jp/ichiba/1e5d0f38.681d898e.1e5d0f39.034049dd/?pc=" + encodedUri;
 }
